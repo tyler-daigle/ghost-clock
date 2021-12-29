@@ -1,3 +1,5 @@
+import { scrollItem } from "./scroller";
+
 const timeContainer: HTMLElement = document.getElementById("current-time");
 const containerWidth = 1100;
 const secondCircleSize = 20;
@@ -7,6 +9,11 @@ const mainContainerpadding = 65;
 function init() {
   const mainContainer = document.getElementById("main-container");
   createSecondCircles(mainContainer);
+
+  scrollItem(
+    document.getElementById("scrolling-text-container"),
+    document.getElementById("scrolling-text")
+  );
 }
 
 function createSecondCircles(parentContainer: HTMLElement) {

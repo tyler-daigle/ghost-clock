@@ -1,8 +1,109 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/scroller.ts":
+/*!*************************!*\
+  !*** ./src/scroller.ts ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "scrollItem": () => (/* binding */ scrollItem)
+/* harmony export */ });
+function scrollItem(parentContainer, scrollingContent, scrollSpeed = 2) {
+    // get the width of the screen
+    // get the width of the content to scroll
+    // set the left margin of the content to the width of the screen
+    // keep subtracting the left margin until it === -width of the content
+    // once we reach the end of the content reset it back to the width of the screen
+    // scrollSpeed will be number of pixels per tick to scroll
+    // const screenWidth = document.getElementsByTagName("body")[0].clientWidth;
+    const screenWidth = parentContainer.offsetWidth;
+    const contentWidth = scrollingContent.offsetWidth;
+    const delay = 10;
+    scrollingContent.style.marginLeft = `${screenWidth / 2}px`;
+    setInterval(() => {
+        let currentPosition = parseInt(scrollingContent.style.marginLeft);
+        if (currentPosition < -(contentWidth * 2)) {
+            currentPosition = screenWidth;
+        }
+        else {
+            currentPosition -= scrollSpeed;
+        }
+        scrollingContent.style.marginLeft = `${currentPosition}px`;
+    }, delay);
+}
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scroller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroller */ "./src/scroller.ts");
+
 const timeContainer = document.getElementById("current-time");
 const containerWidth = 1100;
 const secondCircleSize = 20;
@@ -11,6 +112,7 @@ const mainContainerpadding = 65;
 function init() {
     const mainContainer = document.getElementById("main-container");
     createSecondCircles(mainContainer);
+    (0,_scroller__WEBPACK_IMPORTED_MODULE_0__.scrollItem)(document.getElementById("scrolling-text-container"), document.getElementById("scrolling-text"));
 }
 function createSecondCircles(parentContainer) {
     const numCircles = 60;
@@ -160,6 +262,8 @@ setInterval(() => {
     updateTime();
 }, updateInterval);
 init();
+
+})();
 
 /******/ })()
 ;

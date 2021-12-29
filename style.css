@@ -10,11 +10,13 @@ body {
   background-color: black;
   font-family: "Digital-7", sans-serif;
   color: white;
+  margin: 0;
 }
 #center-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+
   height: 100vh;
 }
 #main-container {
@@ -135,4 +137,23 @@ body {
 .second-circle-filled {
   background-color: #fd0000;
   box-shadow: 0 0 15px #fd0000;
+}
+
+#scrolling-text-container {
+  color: #fd0000;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #1b0505;
+  border: solid 4px #fd0000;
+  box-shadow: 0 0 15px #1b0505;
+
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+#scrolling-text {
+  font-size: 5rem;
+  height: 5rem;
+  margin: 10px;
 }
