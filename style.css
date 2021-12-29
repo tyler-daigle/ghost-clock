@@ -1,12 +1,22 @@
+@font-face {
+  font-family: "Digital-7";
+  src: url("./fonts/digital-7.ttf");
+}
+
 * {
   box-sizing: border-box;
 }
 body {
   background-color: black;
-  font-family: "Anton", sans-serif;
+  font-family: "Digital-7", sans-serif;
   color: white;
 }
-
+#center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 #main-container {
   --main-container-width: 1100px;
   --second-circle-size: 20px;
@@ -23,10 +33,12 @@ body {
 #inner-container {
   border: solid 10px #fd0000;
   border-radius: 20px;
+  box-shadow: 0 0 15px #fd0000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+
   margin: 10px;
 }
 
@@ -36,10 +48,32 @@ body {
 
 .time-text {
   font-size: 200px;
-  letter-spacing: 1.5rem;
+  font-weight: bold;
+  /* letter-spacing: 1rem; */
+  text-align: center;
+  /* justify-content: center; */
+  margin: 0 auto;
+  text-shadow: 0 0 25px #fd0000;
+  width: 80%;
 }
 
+.hours-text {
+  display: inline-block;
+  width: 25%;
+}
+
+.minutes-text {
+  display: inline-block;
+  width: 25%;
+}
+
+.seconds-text {
+  display: inline-block;
+  width: 25%;
+}
 .time-seperator {
+  display: inline-block;
+  /* margin: 0 10px; */
   color: #fd0000;
 }
 
@@ -47,14 +81,13 @@ body {
   width: var(--second-circle-size);
   height: var(--second-circle-size);
   border-radius: 50%;
-  background-color: #fd0000;
   position: absolute;
 }
 
 .big-circle {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-color: white;
   border-radius: 50%;
 }
@@ -62,23 +95,44 @@ body {
 #top-circle {
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -20%);
 }
 
 #bottom-circle {
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
 }
 
 #left-circle {
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  transform: translate(-10%, -50%);
 }
 
 #right-circle {
   top: 50%;
   left: 100%;
-  transform: translate(-100%, -50%);
+  transform: translate(-85%, -35%);
+}
+
+.big-circle-filled {
+  background-image: url("images/ghost.png");
+  background-size: cover;
+  background-position: -6px -1px;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 15px white;
+}
+
+.big-circle-empty {
+  background-image: none;
+}
+.second-circle-empty {
+  background-color: white;
+  box-shadow: 0 0 15px white;
+}
+
+.second-circle-filled {
+  background-color: #fd0000;
+  box-shadow: 0 0 15px #fd0000;
 }
