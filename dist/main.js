@@ -23,13 +23,13 @@ function scrollItem(parentContainer, scrollingContent, scrollSpeed = 2) {
     const screenWidth = parentContainer.offsetWidth;
     const contentWidth = scrollingContent.offsetWidth;
     const delay = 10;
-    scrollingContent.style.marginLeft = `${screenWidth / 2}px`;
+    scrollingContent.style.marginLeft = `${screenWidth}px`;
     setInterval(() => {
         let currentPosition = parseInt(scrollingContent.style.marginLeft);
-        // multiply the contentWidth by 2.5 so that the entire piece of content scrolls
+        // multiply the contentWidth by 3 so that the entire piece of content scrolls
         // off the screen - otherwise it just disappears.
-        if (currentPosition < -(contentWidth * 2.5)) {
-            currentPosition = screenWidth;
+        if (currentPosition < -(contentWidth * 2) - screenWidth) {
+            currentPosition = screenWidth + contentWidth;
         }
         else {
             currentPosition -= scrollSpeed;
