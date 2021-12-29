@@ -26,7 +26,9 @@ function scrollItem(parentContainer, scrollingContent, scrollSpeed = 2) {
     scrollingContent.style.marginLeft = `${screenWidth / 2}px`;
     setInterval(() => {
         let currentPosition = parseInt(scrollingContent.style.marginLeft);
-        if (currentPosition < -(contentWidth * 2)) {
+        // multiply the contentWidth by 2.5 so that the entire piece of content scrolls
+        // off the screen - otherwise it just disappears.
+        if (currentPosition < -(contentWidth * 2.5)) {
             currentPosition = screenWidth;
         }
         else {
@@ -112,7 +114,16 @@ const mainContainerpadding = 65;
 function init() {
     const mainContainer = document.getElementById("main-container");
     createSecondCircles(mainContainer);
+    // setup the scroller
     (0,_scroller__WEBPACK_IMPORTED_MODULE_0__.scrollItem)(document.getElementById("scrolling-text-container"), document.getElementById("scrolling-text"));
+    // set the current date
+    let today = new Date();
+    document.getElementById("todays-date").innerText = `${today.toDateString()}`;
+    // check if the date has changed every hour
+    setInterval(() => {
+        let today = new Date();
+        document.getElementById("todays-date").innerText = `${today.toDateString()}`;
+    }, 1000 * 60 * 60); // 1000ms * 60 = 1 minute * 60 = 1 hour
 }
 function createSecondCircles(parentContainer) {
     const numCircles = 60;

@@ -19,7 +19,9 @@ export function scrollItem(
 
   setInterval(() => {
     let currentPosition = parseInt(scrollingContent.style.marginLeft);
-    if (currentPosition < -(contentWidth * 2)) {
+    // multiply the contentWidth by 2.5 so that the entire piece of content scrolls
+    // off the screen - otherwise it just disappears.
+    if (currentPosition < -(contentWidth * 2.5)) {
       currentPosition = screenWidth;
     } else {
       currentPosition -= scrollSpeed;

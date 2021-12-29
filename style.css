@@ -156,4 +156,18 @@ body {
   font-size: 5rem;
   height: 5rem;
   margin: 10px;
+  width: 100%;
+}
+
+#date-container {
+  width: 100%;
+  text-align: center;
+}
+
+.date {
+  display: inline-block;
+  font-size: 5rem;
+  color: #10e650;
+  text-shadow: 0 0 15px #10e650;
+  font-weight: bold;
 }

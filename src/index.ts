@@ -10,10 +10,23 @@ function init() {
   const mainContainer = document.getElementById("main-container");
   createSecondCircles(mainContainer);
 
+  // setup the scroller
   scrollItem(
     document.getElementById("scrolling-text-container"),
     document.getElementById("scrolling-text")
   );
+
+  // set the current date
+  let today = new Date();
+  document.getElementById("todays-date").innerText = `${today.toDateString()}`;
+
+  // check if the date has changed every hour
+  setInterval(() => {
+    let today = new Date();
+    document.getElementById(
+      "todays-date"
+    ).innerText = `${today.toDateString()}`;
+  }, 1000 * 60 * 60); // 1000ms * 60 = 1 minute * 60 = 1 hour
 }
 
 function createSecondCircles(parentContainer: HTMLElement) {
