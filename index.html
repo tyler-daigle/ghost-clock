@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="dist/main.js" defer></script>
-  <title>Document</title>
-</head>
-<body>
-  <h1>Ghostbusters Clock</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="dist/main.js" defer></script>
+    <title>Ghostbusters Clock</title>
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="left-circle" class="big-circle"></div>
+      <div id="right-circle" class="big-circle"></div>
+      <div id="top-circle" class="big-circle"></div>
+      <div id="bottom-circle" class="big-circle"></div>
+
+      <div id="inner-container">
+        <h1 class="time-text" id="current-time">3:33:00AM</h1>
+      </div>
+    </div>
+  </body>
 </html>

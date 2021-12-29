@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  font-family: "Anton", sans-serif;
+  color: white;
+}
+
+#main-container {
+  --main-container-width: 1100px;
+  --second-circle-size: 20px;
+  --second-circle-x-spacing: calc(
+    var(--main-container-width) / var(--second-circle-size)
+  );
+  padding: 40px;
+  height: 450px;
+  width: var(--main-container-width);
+  margin: 5rem auto;
+  position: relative;
+}
+
+#inner-container {
+  border: solid 10px #fd0000;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 10px;
+}
+
+.debug {
+  border: dashed 3px red;
+}
+
+.time-text {
+  font-size: 200px;
+  letter-spacing: 1.5rem;
+}
+
+.time-seperator {
+  color: #fd0000;
+}
+
+.second-circle {
+  width: var(--second-circle-size);
+  height: var(--second-circle-size);
+  border-radius: 50%;
+  background-color: #fd0000;
+  position: absolute;
+}
+
+.big-circle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#top-circle {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#bottom-circle {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#left-circle {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+#right-circle {
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%);
+}

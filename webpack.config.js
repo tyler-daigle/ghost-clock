@@ -4,6 +4,7 @@ module.exports = {
   // bundling mode
   mode: "development",
   devtool: "source-map",
+  watch: true,
   // entry files
   entry: "./src/index.ts",
 
